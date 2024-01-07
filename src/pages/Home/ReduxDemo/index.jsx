@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../../logo.svg';
-import { Counter } from '../../../redux/counter/Counter';
+import { Counter } from './Counter';
 import './index.css';
 
 function ReduxDemo() {
