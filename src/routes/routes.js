@@ -4,63 +4,80 @@ import HomePage from "../pages/Home";
 import Initialization from "../pages/Home/Initialization";
 import LoginPage from "../pages/Login";
 
+const UserCenter = lazy(() => import("../pages/UserCenter"));
+const SettingCenter = lazy(() => import("../pages/SettingCenter"));
+
+const ReduxDemo = lazy(() => import("../pages/Home/ReduxDemo"));
+const SVGStudy = lazy(() => import("../pages/Home/SVGStudy"));
+const WXModuleTool = lazy(() => import("../pages/Home/WXModuleTool"));
+const About = lazy(() => import("../pages/Home/About"));
+const Gobang = lazy(() => import("../pages/Home/Game/Gobang"));
+const Tank = lazy(() => import("../pages/Home/Game/Tank"));
+
 //定义导航路由,最多不要超过3级，否则样式会出错
 //name:路由名字
 //icon:路由图标
 //path:路由路径
-//component:路由跳转的组件
+//element:路由跳转的组件
 //childen:次级路由
 //showChilden:是否默认加载次级路由，设置为true时加载
 export const navRouterArr = [
   {
     name: "首页",
     icon: <HomeOutlined />,
-    path: "/home/index",
-    component: Initialization,
+    path: "index",
+    key:"/home/index",
+    element: <Initialization />,
   },
   {
     name: "Redux案例",
     icon: <HomeOutlined />,
-    path: "/home/ReduxDemo",
-    component: lazy(() => import("../pages/Home/ReduxDemo")),
+    path: "ReduxDemo",
+    key:"/home/ReduxDemo",
+    element: <ReduxDemo />,
   },
   {
     name: "游戏",
     icon: "",
-    path: "/home/game",
-    childen: [
+    path: "game",
+    key:"/home/game",
+    secondryMenu: [
       {
         name: "五子棋",
         icon: "",
-        path: "/home/game/gobang",
-        component: lazy(() => import("../pages/Home/Game/Gobang")), //路由懒加载
+        path: "game/gobang",
+        key:"/home/game/gobang",
+        element: <Gobang />,
       },
       {
         name: "坦克大战",
         icon: "",
-        path: "/home/game/tank",
-        component: lazy(() => import("../pages/Home/Game/Tank")),
+        path: "game/tank",
+        key:"/home/game/tank",
+        element: <Tank />,
       },
     ],
-    showChilden: true,
   },
   {
     name: "SVG练习",
     icon: <EditOutlined />,
-    path: "/home/SVGStudy",
-    component: lazy(() => import("../pages/Home/SVGStudy")),
+    path: "SVGStudy",
+    key:"/home/SVGStudy",
+    element: <SVGStudy />,
   },
   {
     name: "微信链接工具",
     icon: <EditOutlined />,
-    path: "/home/WXModuleTool",
-    component: lazy(() => import("../pages/Home/WXModuleTool")),
+    path: "WXModuleTool",
+    key:"/home/WXModuleTool",
+    element: <WXModuleTool />,
   },
   {
     name: "关于我",
     icon: <SmileOutlined />,
-    path: "/home/about",
-    component: lazy(() => import("../pages/Home/About")), //路由懒加载
+    path: "about",
+    key:"/home/about",
+    element: <About />,
   },
 ];
 
@@ -70,7 +87,7 @@ export const createNavRouter = (params) => {
     name: "",
     icon: "",
     path: "/",
-    component: null,
+    element: null,
   };
   navRouterArr.push({
     ...obj,
@@ -81,22 +98,23 @@ export const createNavRouter = (params) => {
 export const pageRouterArr = [
   {
     name: "首页",
-    path: "/home",
-    component: HomePage,
+    path: "/home/*",
+    element: <HomePage />,
+    childen: navRouterArr,
   },
   {
     name: "登录页",
     path: "/login",
-    component: LoginPage,
+    element: <LoginPage />,
   },
   {
     name: "个人中心",
     path: "/userCenter",
-    component: lazy(() => import("../pages/UserCenter")),
+    element: <UserCenter />,
   },
   {
     name: "设置中心",
     path: "/settingCenter",
-    component: lazy(() => import("../pages/SettingCenter")),
+    element: <SettingCenter />,
   },
 ];

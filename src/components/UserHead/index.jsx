@@ -1,7 +1,7 @@
 import { LogoutOutlined, MoreOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Dropdown, Space } from 'antd';
 import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom'; //使普通组件也能使用路由组件的参数
+import { useNavigate } from 'react-router-dom';
 import { getCookie } from '../../utils';
 import ReactLogo from '../ReactLogo';
 import './index.css';
@@ -13,25 +13,21 @@ function UserHead(props) {
     const [state] = useState({
         userInfo: getCookie('userInfo'),
     })
+    const navigate = useNavigate();
 
     function handleMenuClick(key) {
         console.log('click', key);
-
-        if (key === "userCenter") {
-            props.history.push('/userCenter');
-            return;
-        }
-        if (key === "settingCenter") {
-            props.history.push('/settingCenter');
-            return;
-        }
-        if (key === "Github") {
-            window.open('https://github.com/ZhangYiBo1998/my_react_project');
-            return;
-        }
-        if (key === "signOut") {
-            props.history.push('/login');
-            return;
+        
+        switch (key) {
+            case 'Github':
+                window.open('https://github.com/ZhangYiBo1998/my_react_project');
+                break;
+            case 'signOut':
+                navigate('/login');
+                break;
+            default:
+                navigate(`/${key}`)
+                break;
         }
     }
 
@@ -106,4 +102,4 @@ function UserHead(props) {
     )
 }
 
-export default withRouter(UserHead)
+export default UserHead
