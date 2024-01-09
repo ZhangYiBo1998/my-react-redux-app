@@ -24,7 +24,6 @@ function App() {
     }
   ])
 
-  console.log(pageRouterArr)
   return (
     <div className="App bg-image bg-skyblue">
       <Suspense fallback={<Loading fullScreen size='large' />}>

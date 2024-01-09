@@ -43,7 +43,6 @@ export default class WXModuleTool extends Component {
 
     //组件挂完毕
     componentDidMount() {
-        console.log('componentDidMount');
         this.getEncryptionUrlAsyn();
     }
 

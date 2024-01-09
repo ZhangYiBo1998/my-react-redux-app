@@ -26,7 +26,6 @@ export default function NavigationComponent() {
     }
 
     function clickMenu(e) {
-        console.log('click ', e);
         // 跳转路由
         // antd组件暂不支持前进后退后自动选中菜单子项操作
         navigate(e.key);

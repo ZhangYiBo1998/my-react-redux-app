@@ -16,7 +16,6 @@ function UserHead(props) {
     const navigate = useNavigate();
 
     function handleMenuClick(key) {
-        console.log('click', key);
         
         switch (key) {
             case 'Github':
