@@ -1,5 +1,6 @@
 import { EditOutlined, HomeOutlined, SmileOutlined } from '@ant-design/icons';
 import { lazy } from "react";
+
 import HomePage from "../pages/Home";
 import Initialization from "../pages/Home/Initialization";
 import LoginPage from "../pages/Login";
@@ -26,34 +27,33 @@ export const navRouterArr = [
     name: "首页",
     icon: <HomeOutlined />,
     path: "index",
-    key:"/home/index",
+    key: "index",
     element: <Initialization />,
   },
   {
     name: "Redux案例",
     icon: <HomeOutlined />,
     path: "ReduxDemo",
-    key:"/home/ReduxDemo",
+    key: "ReduxDemo",
     element: <ReduxDemo />,
   },
   {
     name: "游戏",
     icon: "",
-    path: "game",
-    key:"/home/game",
-    secondryMenu: [
+    key: "game",
+    children: [
       {
         name: "五子棋",
         icon: "",
-        path: "game/gobang",
-        key:"/home/game/gobang",
+        path: "gobang",
+        key: "gobang",
         element: <Gobang />,
       },
       {
         name: "坦克大战",
         icon: "",
-        path: "game/tank",
-        key:"/home/game/tank",
+        path: "tank",
+        key: "tank",
         element: <Tank />,
       },
     ],
@@ -62,21 +62,21 @@ export const navRouterArr = [
     name: "SVG练习",
     icon: <EditOutlined />,
     path: "SVGStudy",
-    key:"/home/SVGStudy",
+    key: "SVGStudy",
     element: <SVGStudy />,
   },
   {
     name: "微信链接工具",
     icon: <EditOutlined />,
     path: "WXModuleTool",
-    key:"/home/WXModuleTool",
+    key: "WXModuleTool",
     element: <WXModuleTool />,
   },
   {
     name: "关于我",
     icon: <SmileOutlined />,
     path: "about",
-    key:"/home/about",
+    key: "about",
     element: <About />,
   },
 ];
@@ -100,7 +100,7 @@ export const pageRouterArr = [
     name: "首页",
     path: "/home/*",
     element: <HomePage />,
-    childen: navRouterArr,
+    children: navRouterArr,
   },
   {
     name: "登录页",
