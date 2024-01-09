@@ -21,7 +21,6 @@ const Tank = lazy(() => import("../pages/Home/Game/Tank"));
 //path:路由路径
 //element:路由跳转的组件
 //childen:次级路由
-//showChilden:是否默认加载次级路由，设置为true时加载
 export const navRouterArr = [
   {
     name: "首页",
