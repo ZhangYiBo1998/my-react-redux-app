@@ -19,7 +19,7 @@ function UserHead(props) {
         
         switch (key) {
             case 'Github':
-                window.open('https://github.com/ZhangYiBo1998/my_react_project');
+                window.open('https://github.com/ZhangYiBo1998/my-react-redux-app');
                 break;
             case 'signOut':
                 navigate('/login');

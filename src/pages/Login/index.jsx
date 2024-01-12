@@ -138,7 +138,7 @@ export default function Login(props) {
                         </Form.Item>
 
                         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                            <Button type={state.isLogin ? "primary" : ""} htmlType="submit">
+                            <Button type="primary" htmlType="submit">
                                 {state.isLogin ? '登录' : '注册'}
                             </Button>
                             <Button type="link" htmlType="button" onClick={changeLoginStatus}>
