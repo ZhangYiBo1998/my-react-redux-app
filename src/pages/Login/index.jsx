@@ -1,6 +1,7 @@
 import { Button, Checkbox, Form, Input, message } from 'antd';
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { saveCookie } from '../../utils';
 import { proxy53000 } from '../../utils/proxy_variable';
 import './index.css';
@@ -9,6 +10,7 @@ export default function Login(props) {
     const [state, setState] = useState({
         isLogin: !0,
     })
+    const navigate = useNavigate();
 
     const onFinish = (values) => {
         //Object.assign合并对象函数的第一个参数是合并后的对象
@@ -38,7 +40,14 @@ export default function Login(props) {
 
                         // props.history.push('/home');
                         //跳转主页/home路由，replace()让用户登录后无法返回登录页
-                        props.history.replace('/home');
+                        // props.history.replace('/home');
+                        navigate(
+                            '/home',
+                            {
+                                replace: true
+                            }
+                        )
+
                         message.success('登录成功');
                     } else {
                         message.error('登录失败');
