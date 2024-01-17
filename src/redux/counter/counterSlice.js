@@ -42,15 +42,17 @@ export const counterSlice = createSlice({
 
 // 我们也可以手工编写thunk，它可能同时包含同步和异步逻辑。
 // 下面是一个基于当前状态有条件地调度操作的示例。
-export const incrementIfOdd = (amount) => (dispatch, getState) => {
-  // 通过封装的函数获取传入的参数
-  // const currentValue = selectCount(getState());
-  // 直接获取传入的参数
-  const currentValue = getState().counter.value;
-  if (currentValue % 2 === 1) {
-    dispatch(counterSlice.actions.incrementByAmount(amount));
-  }
-};
+export const incrementIfOdd = (amount) => {
+  return (dispatch, getState) => {
+    // 通过封装的函数获取传入的参数
+    // const currentValue = selectCount(getState());
+    // 直接获取传入的参数
+    const currentValue = getState().counter.value;
+    if (currentValue % 2 === 1) {
+      dispatch(counterSlice.actions.incrementByAmount(amount));
+    }
+  };
+}
 
 // #region
 // 下面的函数被称为thunk，它允许我们执行异步逻辑。

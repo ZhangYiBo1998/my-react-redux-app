@@ -10,7 +10,10 @@ import { navRouterArr } from '../../../routes/routes';
 
 export default function NavigationComponent() {
     const [menuArr] = useState(setNavItems(navRouterArr));
-    const [selectKey] = useState('index');
+
+    const pathArr = (window.location.pathname || '/home/index').split('/');
+    const pathName = pathArr[pathArr.length - 1];
+    const [selectKey] = useState(pathName);
     const navigate = useNavigate();
 
     function setNavItems(arr) {

@@ -9,6 +9,7 @@ const UserCenter = lazy(() => import("../pages/UserCenter"));
 const SettingCenter = lazy(() => import("../pages/SettingCenter"));
 
 const ReduxDemo = lazy(() => import("../pages/Home/ReduxDemo"));
+const ReduxTest = lazy(() => import("../pages/Home/ReduxTest"));
 const SVGStudy = lazy(() => import("../pages/Home/SVGStudy"));
 const WXModuleTool = lazy(() => import("../pages/Home/WXModuleTool"));
 const About = lazy(() => import("../pages/Home/About"));
@@ -30,11 +31,18 @@ export const navRouterArr = [
     element: <Initialization />,
   },
   {
-    name: "Redux案例",
+    name: "官方Redux案例",
     icon: <HomeOutlined />,
     path: "ReduxDemo",
     key: "ReduxDemo",
     element: <ReduxDemo />,
+  },
+  {
+    name: "我的Redux案例",
+    icon: <HomeOutlined />,
+    path: "ReduxTest",
+    key: "ReduxTest",
+    element: <ReduxTest />,
   },
   {
     name: "游戏",
